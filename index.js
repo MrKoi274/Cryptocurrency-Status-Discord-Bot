@@ -3,9 +3,13 @@ const axios = require('axios')
 const Discord = require('discord.js')
 const client = new Discord.Client()
 
+const coinId ='harmony';
+const guildId = '958013015880515634';
+const clientId = '958098854786515025';
+const botSecret = 'OTU4MDk4ODU0Nzg2NTE1MDI1.YkIZFw.8EB6TnhynxQejTkCA-9RoHv5Xwk';
+
 function getPrices() {
-
-
+	//highest-yield-savings-service
 	// API for price data.
 	axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${process.env.PREFERRED_CURRENCY}&ids=${process.env.COIN_ID}`).then(res => {
 		// If we got a valid response
@@ -40,5 +44,5 @@ client.on('ready', () => {
 	setInterval(getPrices, Math.max(1, process.env.MC_PING_FREQUENCY || 1) * 60 * 1000)
 })
 
-// Login to Discord
+
 client.login(process.env.DISCORD_TOKEN)
